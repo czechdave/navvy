@@ -1,0 +1,369 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const features = [
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`,
+    title: 'Zakázková výroba',
+    description: 'Vyrábíme na míru dle vašich specifikací — potisk, perforace, UV stabilizace, antistatické úpravy i speciální rozměry.',
+    ascii: '[ ═══ ]',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    title: 'Ověřená kvalita',
+    description: 'Automatické výrobní linky zaručují naprostou pevnost svárů, přesnost rozměrů a konzistentní kvalitu každé série.',
+    ascii: '{ ◆◆◆ }',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    title: 'Rychlé dodání',
+    description: 'Základní rozměry vedeme skladem. Zakázkovou výrobu realizujeme v nejkratších možných termínech.',
+    ascii: '< ──▸ >',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>`,
+    title: 'Doprava zdarma',
+    description: 'Zajišťujeme dopravu po celé České republice zdarma. Dodáváme i malé série pro menší odběratele.',
+    ascii: '| ⇄⇄⇄ |',
+  },
+];
+
+const products = [
+  {
+    title: 'LDPE pytle a sáčky',
+    href: '/sortiment#ldpe-pytle',
+    image: '/images/products/ldpe-pytle.jpg',
+    description: 'Pytle a sáčky ve všech rozměrech na automatických linkách. Spodní i boční sváry, záložky, potisk.',
+  },
+  {
+    title: 'LDPE fólie',
+    href: '/sortiment#ldpe-folie',
+    image: '/images/products/smrstitelne-folie.jpg',
+    description: 'Všechny šířky a tloušťky. Tepelně smrštitelné, standardní i speciální úpravy.',
+  },
+  {
+    title: 'Stretch fólie',
+    href: '/sortiment#stretch-folie',
+    image: '/images/products/ovoce-zelenina.jpg',
+    description: 'Ruční, strojní a potravinářská. Garantovaná váha návinu, perforace, probarvení.',
+  },
+  {
+    title: 'HDPE fólie a pytle',
+    href: '/sortiment#hdpe-folie',
+    image: '/images/products/potistene-folie.jpg',
+    description: 'Tužší fólie pro náročnější aplikace. Potisk, perforace, zakázkové rozměry.',
+  },
+  {
+    title: 'Paletizační pytle',
+    href: '/sortiment#paletizacni-pytle',
+    image: '/images/products/laminovana-folie.jpg',
+    description: 'Smrštitelné LDPE hadice, materiály PELIN a TRIPELIN. Novinka: Y svár.',
+  },
+  {
+    title: 'Bublinkové a pěnové fólie',
+    href: '/sortiment#folie',
+    image: '/images/products/ostatni-sortiment.jpg',
+    description: 'Ochranné fólie pro nábytek a elektroniku. Pytle, návleky, přířezy na míru.',
+  },
+];
+
+const stats = [
+  { value: '25+', label: 'let na trhu' },
+  { value: '8', label: 'produktových řad' },
+  { value: '100%', label: 'doprava zdarma' },
+  { value: '∞', label: 'zakázkové možnosti' },
+];
+
+const materials = [
+  'LDPE', 'HDPE', 'Stretch', 'LLDPE', 'PP', 'PE',
+];
+---
+
+<Layout title="Navvy s.r.o. – Prodej obalů a obalového materiálu | Kutná Hora">
+  <Header />
+
+  <!-- Hero with image background -->
+  <section class="relative bg-primary-dark text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-1.jpg" alt="" class="w-full h-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/95 to-primary-dark/70"></div>
+    </div>
+
+
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+          Navvy s.r.o. — Kutná Hora
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
+          Obalový materiál<br />
+          <span class="text-accent">prvotřídní kvality</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-lg">
+          Velkoobchod s kompletní nabídkou polyethylenových obalů. Fólie, pytle, sáčky, plachty a pásky — vše na zakázku s dopravou zdarma.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/sortiment"
+            class="px-7 py-3.5 bg-accent hover:bg-accent-light text-primary-dark font-bold rounded-lg transition-colors"
+          >
+            Prohlédnout sortiment
+          </a>
+          <a
+            href="mailto:navvy.hrdlicka@gmail.com"
+            class="px-7 py-3.5 border-2 border-white/30 hover:border-white/60 hover:bg-white/5 text-white font-medium rounded-lg transition-all"
+          >
+            Nezávazná poptávka
+          </a>
+        </div>
+
+        <!-- Material tags -->
+        <div class="flex flex-wrap gap-2 mt-10">
+          {materials.map(m => (
+            <span class="px-2.5 py-1 text-[11px] font-mono font-medium text-gray-400 border border-white/10 rounded bg-white/5">{m}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-100">
+        {stats.map(stat => (
+          <div class="py-8 sm:py-10 text-center px-4">
+            <div class="text-3xl sm:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+            <div class="text-sm text-gray-500">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features with ASCII accents -->
+  <section class="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <!-- Background ASCII texture -->
+    <div class="absolute inset-0 flex items-center justify-center ascii-pattern text-gray-100 text-[10px] leading-tight opacity-50 select-none" aria-hidden="true">
+<pre>{`
+  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·
+  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·
+  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·
+  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·
+  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·  ·  +  ·
+  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·
+`}</pre>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-accent font-semibold text-sm uppercase tracking-wider mb-3">Proč si vybrat nás</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">Spolehlivý partner pro&nbsp;vaše obaly</h2>
+        <p class="text-lg text-gray-500 leading-relaxed">
+          Od roku 2000 dodáváme obalový materiál firmám po celé České republice. Zakázková výroba na automatických linkách, velkoobchodní ceny, doprava zdarma.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {features.map(feature => (
+          <div class="bg-surface rounded-2xl p-7 border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                <Fragment set:html={feature.icon} />
+              </div>
+              <span class="font-mono text-xs text-gray-300 group-hover:text-accent/60 transition-colors">{feature.ascii}</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Product showcase with images -->
+  <section class="py-20 sm:py-28 bg-surface-alt relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+        <div>
+          <p class="text-accent font-semibold text-sm uppercase tracking-wider mb-3">Produkty</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Náš sortiment</h2>
+        </div>
+        <a href="/sortiment" class="inline-flex items-center gap-2 text-primary hover:text-primary-light font-semibold text-sm transition-colors group">
+          Zobrazit vše
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map(product => (
+          <a href={product.href} class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all hover:-translate-y-1">
+            <div class="relative h-48 overflow-hidden bg-gray-100">
+              <img
+                src={product.image}
+                alt={product.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{product.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{product.description}</p>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                Více informací
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities / Process -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="text-accent font-semibold text-sm uppercase tracking-wider mb-3">Výrobní možnosti</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Úpravy a technologie</h2>
+          <p class="text-gray-500 leading-relaxed mb-8">
+            Díky moderním automatickým linkám nabízíme široké spektrum úprav a speciálních provedení. Každý produkt přizpůsobíme přesně vašim potřebám.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              'Potisk až 10 barev',
+              'Perforace',
+              'UV stabilizace',
+              'Antistatická úprava',
+              'Tepelné smrštění',
+              'Ionizace',
+              'Antikorozní úprava',
+              'Zdrsnění povrchu',
+              'Skluzné vlastnosti',
+              'Speciální výseky',
+              'Probarvení',
+              'Anti-blocking úprava',
+            ].map(cap => (
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-sm text-gray-700">{cap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- ASCII art decoration block -->
+        <div class="relative">
+          <div class="bg-primary-dark rounded-2xl p-8 sm:p-12 text-center overflow-hidden">
+            <div class="ascii-pattern text-accent/80 text-[11px] sm:text-xs leading-[1.4] whitespace-pre">{`┌──────────────────────────────┐
+│                              │
+│  ╔════════════════════════╗  │
+│  ║  VÝROBNÍ PROCES        ║  │
+│  ╚════════════════════════╝  │
+│                              │
+│  ┌──────────┐  ┌──────────┐  │
+│  │ GRANULÁT │─▸│ EXTRUZE  │  │
+│  └──────────┘  └────┬─────┘  │
+│                     │        │
+│                     ▼        │
+│  ┌──────────┐  ┌──────────┐  │
+│  │ EXPEDICE │◂─│ ZPRACOV. │  │
+│  └──────────┘  └──────────┘  │
+│                              │
+│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─     │
+│                              │
+│  ▓ Potisk    ░ Perforace     │
+│  ▓ Laminace  ░ Sváření       │
+│  ▓ Řezání    ░ Balení        │
+│                              │
+└──────────────────────────────┘`}</div>
+            <p class="text-gray-400 text-sm mt-6">Od suroviny po hotový výrobek pod jednou střechou</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries served -->
+  <section class="py-16 sm:py-20 bg-surface border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Dodáváme do všech odvětví</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Naše obalové materiály najdete v zemědělství, potravinářství, stavebnictví, logistice i maloobchodu.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+        {[
+          { icon: '🏭', label: 'Průmysl' },
+          { icon: '🌾', label: 'Zemědělství' },
+          { icon: '🍞', label: 'Potravinářství' },
+          { icon: '🏗️', label: 'Stavebnictví' },
+          { icon: '📦', label: 'Logistika' },
+          { icon: '🛒', label: 'Maloobchod' },
+          { icon: '💊', label: 'Farmacie' },
+          { icon: '🌱', label: 'Zahradnictví' },
+        ].map(ind => (
+          <div class="flex items-center gap-2.5 px-5 py-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+            <span class="text-xl">{ind.icon}</span>
+            <span class="text-sm font-medium text-gray-700">{ind.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-20 sm:py-28 bg-primary text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-2.jpg" alt="" class="w-full h-full object-cover opacity-10" />
+    </div>
+
+    <!-- ASCII border accent -->
+    <div class="absolute top-6 left-1/2 -translate-x-1/2 ascii-pattern text-white/[0.3] text-[10px] hidden lg:block" aria-hidden="true">
+      ╔══════════════════════════════════════════════════════════════════════════╗
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-accent font-semibold text-sm uppercase tracking-wider mb-4">Připraveni začít?</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">Potřebujete obalový materiál?</h2>
+      <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Kontaktujte nás s vaší poptávkou. Připravíme nabídku na míru včetně dopravy zdarma po celé ČR. Dodáváme i malé série.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="mailto:navvy.hrdlicka@gmail.com"
+          class="px-8 py-4 bg-accent hover:bg-accent-light text-primary-dark font-bold rounded-lg transition-colors text-lg"
+        >
+          Poslat poptávku
+        </a>
+        <a
+          href="tel:+420606466477"
+          class="inline-flex items-center gap-2.5 px-8 py-4 border-2 border-white/30 hover:border-white/60 hover:bg-white/5 font-medium rounded-lg transition-all text-lg"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          +420 606 466 477
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 ascii-pattern text-white/[0.3] text-[10px] hidden lg:block" aria-hidden="true">
+      ╚══════════════════════════════════════════════════════════════════════════╝
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

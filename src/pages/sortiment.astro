@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const products = [
+  {
+    id: 'ldpe-pytle',
+    title: 'LDPE pytle a sáčky',
+    image: '/images/products/ldpe-pytle.jpg',
+    description: 'LDPE pytle a sáčky se vyrábí ve všech používaných rozměrech na automatických linkách, které zaručují naprostou pevnost sváru a přesnost rozměru. Výroba je zakázková — dodáváme i malé série pytlů nebo sáčků.',
+    features: [
+      'Spodní svár (z LDPE hadice)',
+      'Boční svár (z LDPE polohadice)',
+      'Pytle se záložkami',
+      'Tašky s průhmatem',
+      'Blokované sáčky',
+    ],
+    modifications: ['Potisk', 'Perforace', 'Zdrsnění', 'UV ochrana', 'Probarvení', 'Ionizace'],
+    delivery: 'Volně ložené (kartony) nebo v rolích s perforací',
+  },
+  {
+    id: 'ldpe-folie',
+    title: 'LDPE fólie',
+    image: '/images/products/smrstitelne-folie.jpg',
+    description: 'LDPE fólie dodáváme ve všech používaných šířkách a tloušťkách. Fólie jsou vyrobené z vysoce kvalitního granulátu s vysokou transparentností a výbornými mechanicko-fyzikálními vlastnostmi.',
+    features: [
+      'Všechny běžné šířky a tloušťky',
+      'Volitelný typ a váha návinu',
+      'Tepelně smrštitelné varianty',
+      'Zvýšená průrazová odolnost',
+      'Výborné optické vlastnosti',
+    ],
+    modifications: ['Tepelná smrštitelnost', 'UV stabilizace (12/24 měsíců)', 'Antistatická úprava', 'Antikorozní úprava'],
+    delivery: 'Základní rozměry skladem, ostatní na zakázku',
+  },
+  {
+    id: 'stretch-folie',
+    title: 'Stretch fólie',
+    image: '/images/products/ovoce-zelenina.jpg',
+    description: 'Stretch fólie dodáváme ve všech provedeních — ruční, strojní nebo potravinářskou. U ruční fólie garantujeme váhu návinu a dutinky. Ideální pro paletizaci a fixaci zboží během přepravy.',
+    features: [
+      'Ruční stretch fólie',
+      'Strojní stretch fólie',
+      'Potravinářská stretch fólie',
+      'Garantovaná váha návinu',
+      'Stretch-hood fólie',
+    ],
+    modifications: ['Perforace', 'Probarvení', 'Speciální šířky', 'Antikorozní vlastnosti'],
+    delivery: 'Skladem v základních rozměrech, speciální provedení na objednávku',
+  },
+  {
+    id: 'hdpe-folie',
+    title: 'HDPE fólie a pytle',
+    image: '/images/products/potistene-folie.jpg',
+    description: 'HDPE fólie a pytle ve všech používaných rozměrech. Fólie je oproti LDPE tužší s matnějším zabarvením a lepší teplotní odolností. Vhodná pro aplikace vyžadující vyšší pevnost při nižší tloušťce materiálu.',
+    features: [
+      'Vyšší tuhost než LDPE',
+      'Matnější povrch',
+      'Lepší teplotní odolnost',
+      'Nižší tloušťka při zachování pevnosti',
+      'Pytle a sáčky na míru',
+    ],
+    modifications: ['Potisk', 'Perforace', 'Skluzné vlastnosti', 'Speciální výseky'],
+    delivery: 'Volně ložené nebo v rolích, standardní i zakázkové rozměry',
+  },
+  {
+    id: 'paletizacni-pytle',
+    title: 'Paletizační pytle',
+    image: '/images/products/laminovana-folie.jpg',
+    description: 'Paletizační pytle z tepelně smrštitelné LDPE hadice se záložkami. Nabízíme také moderní materiály PELIN a TRIPELIN, které se vyznačují výbornými mechanickými vlastnostmi při výrazně nižších tloušťkách — šetrnější k životnímu prostředí.',
+    features: [
+      'Tepelně smrštitelná LDPE hadice',
+      'Materiál PELIN a TRIPELIN',
+      'Redukce tloušťky až 30 %',
+      'Novinka: Y svár pro lepší fixaci',
+      'Rolované i volně ložené',
+    ],
+    modifications: ['Probarvení', 'Potisk', 'UV stabilizace', 'Antistatická úprava'],
+    delivery: 'Všechny používané rozměry, výroba na zakázku',
+  },
+  {
+    id: 'plachty',
+    title: 'Plachty',
+    image: '/images/products/ochranna-folie.jpg',
+    description: 'Kompletní sortiment plachet pro zemědělce, zahrádkáře a stavaře. Silážní a zahradní plachty obsahují UV filtr pro výrazně delší životnost i v náročných klimatických podmínkách.',
+    features: [
+      'Silážní plachty s UV filtrem',
+      'Zahradní plachty',
+      'Stavební plachty',
+      'Solární bazénové plachty',
+      'Kašírované plachty',
+    ],
+    modifications: ['UV stabilizace (12/24 měsíců)', 'Zesílené okraje', 'Speciální rozměry'],
+    delivery: 'Kompletní sortiment rozměrů skladem i na objednávku',
+  },
+  {
+    id: 'pasky',
+    title: 'Pásky',
+    image: '/images/products/antistaticka-folie.jpg',
+    description: 'Kompletní sortiment lepících a vázacích pásek včetně příslušenství. Pásky pro balení, fixaci i speciální průmyslové aplikace.',
+    features: [
+      'Lepící pásky (PP, PVC)',
+      'Vázací pásky',
+      'Potištěné pásky s logem',
+      'Kompletní příslušenství',
+      'Různé šířky a délky',
+    ],
+    modifications: ['Potisk', 'Speciální lepidla', 'Barevné provedení'],
+    delivery: 'Skladem v běžných rozměrech',
+  },
+  {
+    id: 'folie',
+    title: 'Bublinkové a pěnové fólie',
+    image: '/images/products/ostatni-sortiment.jpg',
+    description: 'Bublinkové a pěnové fólie v základních šířkách a tloušťkách. Z fólií vyrábíme pytle, návleky nebo přířezy vhodné pro ochranu nábytku, spotřební elektroniky a dalších citlivých produktů.',
+    features: [
+      'Bublinkové fólie',
+      'Pěnové fólie a tvarované díly',
+      'Výroba pytlů a návleků',
+      'Přířezy na míru',
+      'Automatická výrobní linka',
+    ],
+    modifications: ['Antistatická úprava', 'Speciální rozměry', 'Kombinace materiálů'],
+    delivery: 'Výhodné ceny díky automatické výrobní lince',
+  },
+];
+---
+
+<Layout title="Sortiment – Navvy s.r.o." description="Kompletní sortiment obalového materiálu – LDPE a HDPE fólie, pytle, sáčky, stretch fólie, plachty, pásky a další. Výroba na zakázku.">
+  <Header />
+
+  <!-- Page Header -->
+  <section class="relative bg-primary-dark text-white py-16 sm:py-24 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/hero-2.jpg" alt="" class="w-full h-full object-cover opacity-15" />
+      <div class="absolute inset-0 bg-gradient-to-b from-primary-dark/90 to-primary-dark"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-4">
+          Navvy s.r.o.
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-5">Sortiment</h1>
+        <p class="text-lg text-gray-300 leading-relaxed max-w-2xl">
+          Kompletní nabídka obalového materiálu z polyethylenu pro průmyslové i komerční využití. Zakázková výroba dle vašich specifikací, včetně potisku, perforace a speciálních úprav.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <div class="bg-white border-b border-gray-200 sticky top-16 sm:top-20 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-3 scrollbar-hide -mx-1">
+        {products.map(product => (
+          <a
+            href={`#${product.id}`}
+            class="px-3 py-1.5 text-sm text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg whitespace-nowrap transition-colors font-medium"
+          >
+            {product.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <section class="py-16 sm:py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {products.map((product, i) => (
+        <div id={product.id} class="scroll-mt-32 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div class={`grid grid-cols-1 lg:grid-cols-5 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <!-- Image -->
+            <div class={`lg:col-span-2 relative ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <img
+                src={product.image}
+                alt={product.title}
+                class="w-full h-56 sm:h-64 lg:h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-transparent"></div>
+            </div>
+
+            <!-- Content -->
+            <div class={`lg:col-span-3 p-6 sm:p-8 lg:p-10 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="flex items-start gap-3 mb-4">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent/15 text-accent font-mono text-sm font-bold shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">{product.title}</h2>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed mb-6">{product.description}</p>
+
+              <!-- Features -->
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Provedení</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {product.features.map(f => (
+                    <li class="flex items-center gap-2.5">
+                      <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm text-gray-700">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Modifications -->
+              <div class="mb-5">
+                <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Dostupné úpravy</h3>
+                <div class="flex flex-wrap gap-2">
+                  {product.modifications.map(m => (
+                    <span class="px-2.5 py-1 text-xs font-medium text-primary bg-primary/5 border border-primary/10 rounded-md">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Delivery -->
+              <div class="flex items-start gap-2 pt-4 border-t border-gray-100">
+                <svg class="w-4 h-4 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+                <span class="text-sm text-gray-500">{product.delivery}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Materials info -->
+  <section class="py-16 sm:py-20 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Materiály a zpracování</h2>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Zpracováváme širokou škálu polyethylenových materiálů. Díky vlastní výrobě kontrolujeme kvalitu v každém kroku — od suroviny po hotový výrobek.
+          </p>
+          <div class="grid grid-cols-3 gap-3">
+            {['LDPE', 'HDPE', 'LLDPE', 'PP', 'CPP', 'BOPP'].map(mat => (
+              <div class="text-center py-4 px-3 bg-surface rounded-xl border border-gray-100">
+                <span class="font-mono font-bold text-primary text-lg">{mat}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-primary-dark rounded-2xl p-8 sm:p-10">
+          <div class="ascii-pattern text-accent/70 text-[11px] sm:text-xs leading-[1.5] whitespace-pre text-center">{`╔═══════════════════════════════╗
+║      DOSTUPNE FORMATY         ║
+╠═══════════════════════════════╣
+║                               ║
+║  ┌──────┐  HADICE             ║
+║  │      │  sirka 50-2000 mm   ║
+║  └──────┘                     ║
+║                               ║
+║  ┌──────┐  POLOHADICE         ║
+║  │  --  │  sirka 100-1000 mm  ║
+║  └──────┘                     ║
+║                               ║
+║  ════════  FOLIE              ║
+║            sirka 100-2000 mm  ║
+║                               ║
+║  ┌──┐┌──┐  SACKY / PYTLE      ║
+║  │  ││  │  libovolne rozmery  ║
+║  └──┘└──┘                     ║
+║                               ║
+╚═══════════════════════════════╝`}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Nenašli jste co hledáte?</h2>
+      <p class="text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed">
+        Vyrábíme na zakázku dle vašich specifikací. Kontaktujte nás s vaší poptávkou — připravíme nabídku na míru s dopravou zdarma.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="mailto:navvy.hrdlicka@gmail.com"
+          class="px-8 py-3.5 bg-accent hover:bg-accent-light text-primary-dark font-bold rounded-lg transition-colors"
+        >
+          Poslat poptávku
+        </a>
+        <a
+          href="tel:+420606466477"
+          class="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white/30 hover:border-white/60 hover:bg-white/5 font-medium rounded-lg transition-all"
+        >
+          +420 606 466 477
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
